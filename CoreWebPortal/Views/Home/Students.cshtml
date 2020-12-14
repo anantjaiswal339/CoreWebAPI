@@ -1,0 +1,60 @@
+﻿@using CoreWebAPI.Infrastructure.Models;
+@model List<StudentCreateViewModel>
+@{
+    ViewData["Title"] = "Manage Students";
+}
+
+<div class="d-flex justify-content-between">
+    <div>
+        <h4>Manage Students</h4>
+    </div>
+    <div>
+        <a class="btn btn-primary" onclick="return alert('This feature us remaining to develope')" >+New Student</a>
+    </div>
+</div>
+<div class="clearfix">&nbsp;</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                City
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    <a asp-action="Edit" onclick="return alert('This feature us remaining to develope')" asp-route-id="@item.StudentID">Edit</a> |
+                    <a asp-action="Details" onclick="return alert('This feature us remaining to develope')" asp-route-id="@item.StudentID">Details</a> |
+                    <a asp-action="Delete" onclick="return confirm('Are you sure want to delete this record.')" asp-route-id="@item.StudentID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

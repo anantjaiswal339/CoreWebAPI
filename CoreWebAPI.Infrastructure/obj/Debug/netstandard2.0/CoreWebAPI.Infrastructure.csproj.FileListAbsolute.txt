@@ -6,3 +6,4 @@ E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstand
 E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.csproj.CoreCompileInputs.cache
 E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.dll
 E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.pdb
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.csprojAssemblyReference.cache
