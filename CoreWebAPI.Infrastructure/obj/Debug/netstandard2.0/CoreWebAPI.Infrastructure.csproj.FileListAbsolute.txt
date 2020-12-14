@@ -1,0 +1,8 @@
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\bin\Debug\netstandard2.0\CoreWebAPI.Infrastructure.deps.json
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\bin\Debug\netstandard2.0\CoreWebAPI.Infrastructure.dll
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\bin\Debug\netstandard2.0\CoreWebAPI.Infrastructure.pdb
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.AssemblyInfoInputs.cache
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.AssemblyInfo.cs
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.csproj.CoreCompileInputs.cache
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.dll
+E:\PROJECT\BPK Tech Test\CoreWebAPI\CoreWebAPI.Infrastructure\obj\Debug\netstandard2.0\CoreWebAPI.Infrastructure.pdb
