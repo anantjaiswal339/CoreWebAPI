@@ -26,6 +26,64 @@ namespace CoreWebPortal.Controllers
         {
             return View();
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(StudentCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _studentsRepository.InsertStudent(model);
+                TempData["ResponseMessage"] = "Record has been inserted successfully!";
+                return RedirectToAction("Students");
+            }
+            return View(model);
+        }
+        public async Task<IActionResult> Edit(int id)
+        {            
+            var student = await _studentsRepository.GetStudent(id);
+            if (student == null)
+            {
+                return View("_NotFoundPartial");
+            }
+            var model = new StudentCreateViewModel
+            {
+                StudentID = student.StudentID,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                City = student.City,
+                PhoneNumber = student.PhoneNumber
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, StudentCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.StudentID = id;
+                await _studentsRepository.UpdateStudent(model);
+                TempData["ResponseMessage"] = "Record has been updated successfully!";
+                return RedirectToAction("Students");
+            }
+            return View(model);
+        }
+
+        public async Task<IActionResult> DeleteStudent(int studentId)
+        {
+            try
+            {
+                await _studentsRepository.DeleteStudent(studentId);
+                return StatusCode(200, "Record has been delete successfully!");
+            }
+            catch
+            {
+                return StatusCode(500, "Failed to delete record!");
+            }
+        }
 
         public IActionResult Privacy()
         {

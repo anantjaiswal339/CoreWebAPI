@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CoreWebAPI.Test
 {
@@ -25,15 +26,20 @@ namespace CoreWebAPI.Test
         }
 
         [Test]
-        public void TestGetAllStudents()
+        public void TestGetAllStudentsAsync()
         {
-            _studentRepository.Setup(a => a.GetAllStudent().Result).Returns(students.ToList());
-
-            StudentsRepository studentsRepository = new StudentsRepository();
-            var studentList = studentsRepository.GetAllStudent();
-
-            Assert.IsTrue(studentList.Result.Count > 1);
+            _studentRepository.Setup(a => a.GetAllStudent()).Returns(Task.Run(() => students));
+            
+            Assert.IsTrue(students.Count > 1);
         }
+        [Test]
+        public void TestInsertStudentsAsync()
+        {
+            _studentRepository.Setup(a => a.GetAllStudent()).Returns(Task.Run(() => students));
+
+            Assert.IsTrue(students.Count > 1);
+        }
+
 
     }
 }

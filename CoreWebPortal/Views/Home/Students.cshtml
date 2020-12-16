@@ -9,52 +9,86 @@
         <h4>Manage Students</h4>
     </div>
     <div>
-        <a class="btn btn-primary" onclick="return alert('This feature us remaining to develope')" >+New Student</a>
+        <a class="btn btn-primary" asp-action="Create">New Student</a>
     </div>
 </div>
 <div class="clearfix">&nbsp;</div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                Phone Number
-            </th>
-            <th>
-                City
-            </th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+@if (TempData["ResponseMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["ResponseMessage"]
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    <a asp-action="Edit" onclick="return alert('This feature us remaining to develope')" asp-route-id="@item.StudentID">Edit</a> |
-                    <a asp-action="Details" onclick="return alert('This feature us remaining to develope')" asp-route-id="@item.StudentID">Details</a> |
-                    <a asp-action="Delete" onclick="return confirm('Are you sure want to delete this record.')" asp-route-id="@item.StudentID">Delete</a>
-                </td>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    City
+                </th>
+                <th>Action</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-success btn-sm" asp-route-id="@item.StudentID">Edit</a>
+                        <a href="javascript:void(0);" class="lnkDeleteStudent btn btn-danger btn-sm" data-id="@item.StudentID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-
+@*@section Script {*@
+    <script>
+        $(document).ready(function () {
+            
+            $(".lnkDeleteStudent").click(function () {
+                if (confirm('Are you sure want to delete this record?')) {
+                    var studentID = $(this).attr("data-id");
+                    var thiscontrol = $(this);
+                    $.ajax({
+                        url: "/Home/DeleteStudent",
+                        data: { studentId: studentID },
+                        type: "Post",
+                        success: function (response) {
+                            debugger
+                            alert(response);
+                            $(thiscontrol).parents("tr").remove()
+                            //We can display toaster or in label as per project requirements
+                        },
+                        error: function (err) {
+                            alert("Failed to delete record!");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+@*}*@
